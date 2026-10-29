@@ -1,0 +1,115 @@
+id_kelas,kode_mk,nama_mk,kelas,semester,sks,dosen,peserta,tipe
+TG-B,TG,Teori Graf,B,3,3,VH,,teori
+TG-D,TG,Teori Graf,D,3,3,AW,,teori
+KKA-B,KKA,Konsep Kecerdasan Artifisial,B,3,3,CF,,teori
+MD-C,MD,Matematika Diskrit,C,3,3,AW,,teori
+TG-A,TG,Teori Graf,A,3,3,VH,,teori
+PBO-A,PBO,Pemrograman Berorientasi Objek,A,3,3,RL,,teori
+KKA-D,KKA,Konsep Kecerdasan Artifisial,D,3,3,AI,,teori
+MD-E,MD,Matematika Diskrit,E,3,3,IG,,teori
+KKA-A,KKA,Konsep Kecerdasan Artifisial,A,3,3,NS,,teori
+KPPL-A,KPPL,Konsep Pengembangan Perangkat Lunak,A,3,2,SR;BN,,teori
+KPPL-I,KPPL,Konsep Pengembangan Perangkat Lunak,I,3,2,DO,,teori
+MD-I,MD,Matematika Diskrit,I,3,3,HM,,teori
+DM-N,DM,Penambangan Data,N,3,4,AI;DA,,lab
+TG-E,TG,Teori Graf,E,3,3,AW,,teori
+TG-M,TG,Teori Graf,M,3,3,VH,,teori
+TG-C,TG,Teori Graf,C,3,3,VH,,teori
+KKA-C,KKA,Konsep Kecerdasan Artifisial,C,3,3,DA,,teori
+KPPL-B,KPPL,Konsep Pengembangan Perangkat Lunak,B,3,2,SR;BN,,teori
+PBO-N,PBO,Pemrograman Berorientasi Objek,N,3,3,RJ,,teori
+PBO-B,PBO,Pemrograman Berorientasi Objek,B,3,3,RL,,teori
+PBO-E,PBO,Pemrograman Berorientasi Objek,E,3,3,RJ,,teori
+KPPL-C,KPPL,Konsep Pengembangan Perangkat Lunak,C,3,2,SR;BN,,teori
+PPB-M,PPB,Pemrograman Perangkat Bergerak,M,3,3,FB,,teori
+ML-N,ML,Pemelajaran Mesin,N,3,4,AI;DA,,lab
+PW-A,PW,Pemrograman Web,A,3,3,AF;NZ,,lab
+JK-B,JK,Jaringan Komputer,B,3,4,RM;AM;BJ,,teori
+KKA-I,KKA,Konsep Kecerdasan Artifisial,I,3,3,MK,,teori
+PW-M,PW,Pemrograman Web,M,3,3,MA;BN,,teori
+KI-N,KI,Keamanan Informasi,N,3,3,BS,,teori
+MD-A,MD,Matematika Diskrit,A,3,3,AW,,teori
+PBO-I,PBO,Pemrograman Berorientasi Objek,I,3,3,IS,,teori
+SOJK-M,SOJK,Sistem Operasi dan Jaringan Komputer,M,3,3,NZ,,teori
+PW-B,PW,Pemrograman Web,B,3,3,FB,,lab
+JK-I,JK,Jaringan Komputer,I,3,4,AF;NZ,,lab
+MD-D,MD,Matematika Diskrit,D,3,3,HM,,teori
+JK-C,JK,Jaringan Komputer,C,3,4,RM;BJ;AM,,teori
+KKA-E,KKA,Konsep Kecerdasan Artifisial,E,3,3,MK,,teori
+TG-I,TG,Teori Graf,I,3,3,IG,,teori
+PPL-M,PPL,Perancangan Perangkat Lunak,M,3,3,SR;AL,,teori
+KK-N,KK,Kecerdasan Komputasional,N,3,4,DA;NS,,lab
+PW-D,PW,Pemrograman Web,D,3,3,IS,,teori
+PW-I,PW,Pemrograman Web,I,3,3,AB,,teori
+KKA-M,KKA,Konsep Kecerdasan Artifisial,M,3,3,MK,,lab
+MD-B,MD,Matematika Diskrit,B,3,3,AW,,teori
+PBO-D,PBO,Pemrograman Berorientasi Objek,D,3,3,IS,,teori
+PAA-M,PAA,Perancangan dan Analisis Algoritma,M,3,3,IS,,teori
+PAA-N,PAA,Perancangan dan Analisis Algoritma,N,3,3,WN,,teori
+PBO-C,PBO,Pemrograman Berorientasi Objek,C,3,3,IS,,teori
+PW-C,PW,Pemrograman Web,C,3,3,AB,,lab
+JK-A,JK,Jaringan Komputer,A,3,4,BJ;AM;RM,,teori
+MD-N,MD,Matematika Diskrit,N,3,3,IG,,teori
+RK-T,RK,Rekayasa Kebutuhan,T,3,3,DO,,teori
+TKTI-T,TKTI,Tata Kelola Teknologi Informasi,T,3,3,RS,,teori
+KB-N,KB,Kecerdasan Bisnis,N,3,3,RV,,lab
+DS-T,DS,Sistem Terdistribusi,T,3,3,WS,,teori
+CP-T,CP,Pemrograman Kompetitif,T,3,3,RL,,teori
+RB-N,RB,Robotika,N,3,3,DA;AI,,teori
+PLP-T,PLP,Pengantar Logika dan Pemrograman (Pengayaan),T,3,3,RL,,teori
+SE-T,SE,Evolusi Perangkat Lunak,T,3,3,ST,,teori
+TPG-T,TPG,Teknik Pengembangan Gim,T,3,3,IM,,teori
+MPPL-T,MPPL,Manajemen Proyek Perangkat Lunak,T,3,3,SL,,teori
+RO-T,RO,Riset Operasi,T,3,3,BA,,teori
+ES-T,ES,Sistem Perusahaan,T,3,3,KR;RS,,teori
+CC-T,CC,Komputasi Awan,T,3,3,RM,,teori
+MA-M,MA,Metodologi Agile,M,3,3,BN,,teori
+PPG-T,PPG,Pengantar Pengembangan Gim (Pengayaan),T,3,3,IM,,lab
+PBD-M,PBD,Pengembangan Back End Dasar,M,3,3,MA;BN,,teori
+KBM-N,KBM,Komputasi Biomedik,N,3,3,MK;CF,,teori
+SG-T,SG,Gim Cerdas,T,3,3,DH,,teori
+RB-T,RB,Robotika,T,3,3,DA;AI,,lab
+MS-C,MS,Pemodelan dan Simulasi,C,5,3,AS,,teori
+RSBP-A,RSBP,Rekayasa Sistem Berbasis Pengetahuan,A,5,3,AL,,teori
+RSBP-D,RSBP,Rekayasa Sistem Berbasis Pengetahuan,D,5,3,RN,,teori
+GK-I,GK,Grafika Komputer,I,5,3,AY,,teori
+RSBP-I,RSBP,Rekayasa Sistem Berbasis Pengetahuan,I,5,3,RN,,teori
+GK-B,GK,Grafika Komputer,B,5,3,DH,,teori
+GK-D,GK,Grafika Komputer,D,5,3,SA,,teori
+KI-A,KI,Keamanan Informasi,A,5,3,BJ;TA,,teori
+RSBP-C,RSBP,Rekayasa Sistem Berbasis Pengetahuan,C,5,3,SC,,teori
+SQ-M,SQ,Kualitas Perangkat Lunak,M,5,3,UY,,teori
+PBKK-B,PBKK,Pemrograman Berbasis Kerangka Kerja,B,5,3,DS,,lab
+PBKK-I,PBKK,Pemrograman Berbasis Kerangka Kerja,I,5,3,NZ,,lab
+MS-D,MS,Pemodelan dan Simulasi,D,5,3,AS,,teori
+GK-A,GK,Grafika Komputer,A,5,3,WN;AY,,teori
+RSBP-B,RSBP,Rekayasa Sistem Berbasis Pengetahuan,B,5,3,KR,,teori
+PBKK-A,PBKK,Pemrograman Berbasis Kerangka Kerja,A,5,3,AF;NZ,,lab
+RSBP-E,RSBP,Rekayasa Sistem Berbasis Pengetahuan,E,5,3,NF,,teori
+SG-N,SG,Gim Cerdas,N,5,3,DH,,teori
+MS-A,MS,Pemodelan dan Simulasi,A,5,3,JL,,teori
+MS-E,MS,Pemodelan dan Simulasi,E,5,3,AS,,teori
+GK-C,GK,Grafika Komputer,C,5,3,AY,,teori
+GK-E,GK,Grafika Komputer,E,5,3,WN,,teori
+SE-M,SE,Evolusi Perangkat Lunak,M,5,3,ST,,teori
+VI-N,VI,Visualisasi Informasi,N,5,3,HF,,teori
+MS-B,MS,Pemodelan dan Simulasi,B,5,3,JL,,teori
+PBKK-D,PBKK,Pemrograman Berbasis Kerangka Kerja,D,5,3,FB,,lab
+GK-F,GK,Grafika Komputer,F,5,3,WN,,teori
+VK-N,VK,Visi Komputer,N,5,3,AY,,teori
+KI-I,KI,Keamanan Informasi,I,5,3,BS,,teori
+PBKK-C,PBKK,Pemrograman Berbasis Kerangka Kerja,C,5,3,FB,,lab
+KI-B,KI,Keamanan Informasi,B,5,3,TA;BJ,,teori
+MS-I,MS,Pemodelan dan Simulasi,I,5,3,JL,,teori
+ST-M,ST,Pengujian Perangkat Lunak,M,5,3,RJ,,teori
+MF-M,MF,Metode Formal,M,5,3,BN;DO,,teori
+DM-T,DM,Penambangan Data,T,5,3,DA,,lab
+PCVK-T,PCVK,Pengolahan Citra dan Visi Komputer,T,5,3,AI;NS,,teori
+P3D-N,P3D,Pemodelan 3D,N,5,3,SA,,teori
+MPPL-M,MPPL,Manajemen Proyek Perangkat Lunak,M,5,3,SL,,teori
+RX-N,RX,Realitas X,N,5,3,HF,,teori
+FD-T,FD,Forensik Digital,T,5,3,HS,,teori
+ADM-T,ADM,Analisis Data Multivariat,T,5,3,HM;AS,,teori
+APL-T,APL,Arsitektur Perangkat Lunak,T,5,3,RJ,,lab
+EP-A,EP,Etika Profesi,A,5,2,AL;NF;RN,,teori
+RX-T,RX,Realitas X,T,7,3,HF,,teori
