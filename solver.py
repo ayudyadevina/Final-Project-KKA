@@ -1,15 +1,14 @@
 """
-Antarmuka:
-    assignment, stats = solve(csp, Config(...))
+solver.py - Backtracking search untuk CSP penjadwalan.
+
+Antarmuka: assignment, stats = solve(csp, Config(...))
 
 assignment : {Kelas: (Slot, Ruang)} bila solved, None bila failure/timeout
-stats      : dict dengan kunci
-            nodes       jumlah assignment (variabel=nilai) yang dicoba dan lolos cek
-            backtracks  berapa kali sebuah variabel kehabisan nilai lalu mundur
-            checks      constraint_checks dari csp.conflict()
-            time        detik (perf_counter)
-            status      "solved" / "failure" / "timeout"
+stats      : nodes, backtracks, checks, time, status ("solved"/"failure"/"timeout")
+
+Flag: mrv, degree (pemecah seri MRV), lcv, fc. ac3 belum ada (task 14, PIC A).
 """
+
 import argparse
 import csv
 import random
@@ -19,6 +18,8 @@ from pathlib import Path
 from typing import Optional
 
 from csp import CSP, load_data
+from heuristics import build_ikatan, select_var, order_values
+from propagation import forward_check, restore
 
 BASE = Path(__file__).parent
 
@@ -31,8 +32,7 @@ class Config:
     fc: bool = False
     ac3: bool = False           # MAC
     timeout: float = 60.0       # detik
-    seed: Optional[int] = None  # bila diisi: urutan variabel dan nilai diacak (untuk 5x run)
-
+    seed: Optional[int] = None  
 
 VARIAN = {
     "BT": Config(),
@@ -48,18 +48,14 @@ class _Timeout(Exception):
 
 
 def _cek_didukung(config):
-    belum = [n for n in ("mrv", "degree", "lcv", "fc", "ac3") if getattr(config, n)]
-    if belum:
-        raise NotImplementedError(
-            f"Flag {belum} belum diimplementasikan (heuristics.py / propagation.py)."
-        )
+    if config.ac3:
+        raise NotImplementedError("ac3/MAC belum diimplementasikan (task 14, PIC A).")
 
 
 def solve(csp, config=None):
     config = config or Config()
     _cek_didukung(config)
 
-    # salinan kerja: csp.domains asli tidak diubah
     order = list(csp.variables)
     domains = {k: list(csp.domains[k]) for k in order}
     if config.seed is not None:
@@ -67,6 +63,7 @@ def solve(csp, config=None):
         rng.shuffle(order)
         for d in domains.values():
             rng.shuffle(d)
+    ikatan = build_ikatan(order)
 
     csp.constraint_checks = 0
     stats = {"nodes": 0, "backtracks": 0}
@@ -74,36 +71,30 @@ def solve(csp, config=None):
     t0 = time.perf_counter()
     deadline = t0 + config.timeout
 
-    # ---- hook: ganti isi fungsi ini saat MRV/degree/LCV/FC siap ----
-    def select_var():
-        # baseline: variabel tak terisi berikutnya menurut urutan tetap
-        return order[len(assignment)]
-
-    def order_values(var):
-        # baseline: urutan domain apa adanya
-        return domains[var]
-    # -----------------------------------------------------------------
-
     def consistent(var, val):
-        for other, v in assignment.items():
-            if csp.conflict(var, val, other, v):
-                return False
-        return True
+        return not any(csp.conflict(var, val, o, v) for o, v in assignment.items())
 
     def backtrack():
         if len(assignment) == len(order):
             return True
-        var = select_var()
-        for val in order_values(var):
+        var = select_var(order, assignment, domains, ikatan, config)
+        for val in order_values(var, order, assignment, domains, ikatan, config):
             if time.perf_counter() >= deadline:
                 raise _Timeout
-            if not consistent(var, val):
+            removed = None
+            if config.fc:
+                removed = forward_check(csp, var, val, assignment, domains)
+                if removed is None:
+                    continue
+            elif not consistent(var, val):
                 continue
             assignment[var] = val
             stats["nodes"] += 1
             if backtrack():
                 return True
             del assignment[var]
+            if removed is not None:
+                restore(domains, removed)
         stats["backtracks"] += 1
         return False
 
@@ -132,9 +123,7 @@ def simpan_jadwal(assignment, path):
 
 def muat_csp(data_dir):
     data_dir = Path(data_dir)
-    kelas, ruang, slot = load_data(data_dir / "kelas.csv",
-                                data_dir / "ruang.csv",
-                                data_dir / "slot.csv")
+    kelas, ruang, slot = load_data(data_dir / "kelas.csv", data_dir / "ruang.csv", data_dir / "slot.csv")
     return CSP(kelas, ruang, slot)
 
 
@@ -150,8 +139,7 @@ if __name__ == "__main__":
     csp = muat_csp(a.data)
     cfg = replace(VARIAN[a.algo], timeout=a.timeout, seed=a.seed)
     asg, st = solve(csp, cfg)
-    print(f"{a.algo} | {len(csp.variables)} kelas | " +
-        " ".join(f"{k}={v:.3f}" if k == "time" else f"{k}={v}" for k, v in st.items()))
+    print(f"{a.algo} | {len(csp.variables)} kelas | " + " ".join(f"{k}={v:.3f}" if k == "time" else f"{k}={v}" for k, v in st.items()))
     if asg:
         simpan_jadwal(asg, a.out)
         print(f"Jadwal disimpan: {a.out}")
