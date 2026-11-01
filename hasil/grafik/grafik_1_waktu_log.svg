@@ -2,64 +2,64 @@
 <rect width="100%" height="100%" fill="#ffffff"/>
 <style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.title{font-size:21px;font-weight:600}.sub{font-size:12px;fill:#555}.axis{font-size:12px}.legend{font-size:13px}.small{font-size:10px}</style>
 <text x="560.0" y="30" text-anchor="middle" class="title">Waktu rata-rata per skenario dan varian (5 run, skala log)</text>
-<text x="560.0" y="51" text-anchor="middle" class="sub">Batas timeout (20 s); error bar menunjukkan simpangan baku run solved</text>
+<text x="560.0" y="51" text-anchor="middle" class="sub">Batas timeout (60 s); error bar menunjukkan simpangan baku run solved</text>
 <line x1="85" y1="465.0" x2="1090" y2="465.0" stroke="#d9d9d9" stroke-width="1"/>
 <text x="75" y="469.0" class="axis" text-anchor="end">0.001</text>
-<line x1="85" y1="374.3" x2="1090" y2="374.3" stroke="#d9d9d9" stroke-width="1"/>
-<text x="75" y="378.3" class="axis" text-anchor="end">0.01</text>
-<line x1="85" y1="283.6" x2="1090" y2="283.6" stroke="#d9d9d9" stroke-width="1"/>
-<text x="75" y="287.6" class="axis" text-anchor="end">0.1</text>
-<line x1="85" y1="193.0" x2="1090" y2="193.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="75" y="197.0" class="axis" text-anchor="end">1</text>
-<line x1="85" y1="102.3" x2="1090" y2="102.3" stroke="#d9d9d9" stroke-width="1"/>
-<text x="75" y="106.3" class="axis" text-anchor="end">10</text>
+<line x1="85" y1="383.4" x2="1090" y2="383.4" stroke="#d9d9d9" stroke-width="1"/>
+<text x="75" y="387.4" class="axis" text-anchor="end">0.01</text>
+<line x1="85" y1="301.8" x2="1090" y2="301.8" stroke="#d9d9d9" stroke-width="1"/>
+<text x="75" y="305.8" class="axis" text-anchor="end">0.1</text>
+<line x1="85" y1="220.1" x2="1090" y2="220.1" stroke="#d9d9d9" stroke-width="1"/>
+<text x="75" y="224.1" class="axis" text-anchor="end">1</text>
+<line x1="85" y1="138.5" x2="1090" y2="138.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="75" y="142.5" class="axis" text-anchor="end">10</text>
 <line x1="85" y1="75.0" x2="1090" y2="75.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="75" y="79.0" class="axis" text-anchor="end">20</text>
+<text x="75" y="79.0" class="axis" text-anchor="end">60</text>
 <line x1="85" y1="75.0" x2="1090" y2="75.0" stroke="red" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="105" y="70.0" class="small" fill="red">batas timeout (20 s)</text>
+<text x="105" y="70.0" class="small" fill="red">batas timeout (60 s)</text>
 <line x1="85" y1="75" x2="85" y2="465" stroke="#333"/>
 <line x1="85" y1="465" x2="1090" y2="465" stroke="#333"/>
-<rect x="124.8" y="396.9" width="48.0" height="68.1" fill="#999999"/>
-<line x1="148.8" y1="393.1" x2="148.8" y2="401.1" stroke="#222" stroke-width="1.2"/>
-<line x1="143.8" y1="393.1" x2="153.8" y2="393.1" stroke="#222"/>
-<line x1="143.8" y1="401.1" x2="153.8" y2="401.1" stroke="#222"/>
-<rect x="176.7" y="345.5" width="48.0" height="119.5" fill="#0877B9"/>
-<line x1="200.7" y1="340.9" x2="200.7" y2="350.6" stroke="#222" stroke-width="1.2"/>
-<line x1="195.7" y1="340.9" x2="205.7" y2="340.9" stroke="#222"/>
-<line x1="195.7" y1="350.6" x2="205.7" y2="350.6" stroke="#222"/>
-<rect x="228.5" y="201.9" width="48.0" height="263.1" fill="#55B3E6"/>
-<line x1="252.5" y1="201.0" x2="252.5" y2="202.9" stroke="#222" stroke-width="1.2"/>
-<line x1="247.5" y1="201.0" x2="257.5" y2="201.0" stroke="#222"/>
-<line x1="247.5" y1="202.9" x2="257.5" y2="202.9" stroke="#222"/>
-<rect x="280.3" y="216.5" width="48.0" height="248.5" fill="#E66A00"/>
-<line x1="304.3" y1="213.7" x2="304.3" y2="219.6" stroke="#222" stroke-width="1.2"/>
-<line x1="299.3" y1="213.7" x2="309.3" y2="213.7" stroke="#222"/>
-<line x1="299.3" y1="219.6" x2="309.3" y2="219.6" stroke="#222"/>
-<rect x="332.2" y="209.7" width="48.0" height="255.3" fill="#009F78"/>
-<line x1="356.2" y1="209.0" x2="356.2" y2="210.5" stroke="#222" stroke-width="1.2"/>
-<line x1="351.2" y1="209.0" x2="361.2" y2="209.0" stroke="#222"/>
-<line x1="351.2" y1="210.5" x2="361.2" y2="210.5" stroke="#222"/>
+<rect x="124.8" y="403.7" width="48.0" height="61.3" fill="#999999"/>
+<line x1="148.8" y1="400.3" x2="148.8" y2="407.5" stroke="#222" stroke-width="1.2"/>
+<line x1="143.8" y1="400.3" x2="153.8" y2="400.3" stroke="#222"/>
+<line x1="143.8" y1="407.5" x2="153.8" y2="407.5" stroke="#222"/>
+<rect x="176.7" y="357.4" width="48.0" height="107.6" fill="#0877B9"/>
+<line x1="200.7" y1="353.3" x2="200.7" y2="362.1" stroke="#222" stroke-width="1.2"/>
+<line x1="195.7" y1="353.3" x2="205.7" y2="353.3" stroke="#222"/>
+<line x1="195.7" y1="362.1" x2="205.7" y2="362.1" stroke="#222"/>
+<rect x="228.5" y="228.2" width="48.0" height="236.8" fill="#55B3E6"/>
+<line x1="252.5" y1="227.3" x2="252.5" y2="229.1" stroke="#222" stroke-width="1.2"/>
+<line x1="247.5" y1="227.3" x2="257.5" y2="227.3" stroke="#222"/>
+<line x1="247.5" y1="229.1" x2="257.5" y2="229.1" stroke="#222"/>
+<rect x="280.3" y="241.4" width="48.0" height="223.6" fill="#E66A00"/>
+<line x1="304.3" y1="238.8" x2="304.3" y2="244.1" stroke="#222" stroke-width="1.2"/>
+<line x1="299.3" y1="238.8" x2="309.3" y2="238.8" stroke="#222"/>
+<line x1="299.3" y1="244.1" x2="309.3" y2="244.1" stroke="#222"/>
+<rect x="332.2" y="235.2" width="48.0" height="229.8" fill="#009F78"/>
+<line x1="356.2" y1="234.6" x2="356.2" y2="235.9" stroke="#222" stroke-width="1.2"/>
+<line x1="351.2" y1="234.6" x2="361.2" y2="234.6" stroke="#222"/>
+<line x1="351.2" y1="235.9" x2="361.2" y2="235.9" stroke="#222"/>
 <text x="252.5" y="485" class="axis" text-anchor="middle">S1 (70 kelas)</text>
-<rect x="459.8" y="342.6" width="48.0" height="122.4" fill="#999999"/>
-<line x1="483.8" y1="338.7" x2="483.8" y2="346.9" stroke="#222" stroke-width="1.2"/>
-<line x1="478.8" y1="338.7" x2="488.8" y2="338.7" stroke="#222"/>
-<line x1="478.8" y1="346.9" x2="488.8" y2="346.9" stroke="#222"/>
-<rect x="511.7" y="303.9" width="48.0" height="161.1" fill="#0877B9"/>
-<line x1="535.7" y1="301.7" x2="535.7" y2="306.1" stroke="#222" stroke-width="1.2"/>
-<line x1="530.7" y1="301.7" x2="540.7" y2="301.7" stroke="#222"/>
-<line x1="530.7" y1="306.1" x2="540.7" y2="306.1" stroke="#222"/>
-<rect x="563.5" y="194.7" width="48.0" height="270.3" fill="#55B3E6"/>
-<line x1="587.5" y1="194.4" x2="587.5" y2="195.1" stroke="#222" stroke-width="1.2"/>
-<line x1="582.5" y1="194.4" x2="592.5" y2="194.4" stroke="#222"/>
-<line x1="582.5" y1="195.1" x2="592.5" y2="195.1" stroke="#222"/>
-<rect x="615.3" y="218.8" width="48.0" height="246.2" fill="#E66A00"/>
-<line x1="639.3" y1="218.3" x2="639.3" y2="219.4" stroke="#222" stroke-width="1.2"/>
-<line x1="634.3" y1="218.3" x2="644.3" y2="218.3" stroke="#222"/>
-<line x1="634.3" y1="219.4" x2="644.3" y2="219.4" stroke="#222"/>
-<rect x="667.2" y="189.8" width="48.0" height="275.2" fill="#009F78"/>
-<line x1="691.2" y1="189.1" x2="691.2" y2="190.4" stroke="#222" stroke-width="1.2"/>
-<line x1="686.2" y1="189.1" x2="696.2" y2="189.1" stroke="#222"/>
-<line x1="686.2" y1="190.4" x2="696.2" y2="190.4" stroke="#222"/>
+<rect x="459.8" y="354.8" width="48.0" height="110.2" fill="#999999"/>
+<line x1="483.8" y1="351.3" x2="483.8" y2="358.7" stroke="#222" stroke-width="1.2"/>
+<line x1="478.8" y1="351.3" x2="488.8" y2="351.3" stroke="#222"/>
+<line x1="478.8" y1="358.7" x2="488.8" y2="358.7" stroke="#222"/>
+<rect x="511.7" y="319.9" width="48.0" height="145.1" fill="#0877B9"/>
+<line x1="535.7" y1="318.0" x2="535.7" y2="322.0" stroke="#222" stroke-width="1.2"/>
+<line x1="530.7" y1="318.0" x2="540.7" y2="318.0" stroke="#222"/>
+<line x1="530.7" y1="322.0" x2="540.7" y2="322.0" stroke="#222"/>
+<rect x="563.5" y="221.7" width="48.0" height="243.3" fill="#55B3E6"/>
+<line x1="587.5" y1="221.4" x2="587.5" y2="222.0" stroke="#222" stroke-width="1.2"/>
+<line x1="582.5" y1="221.4" x2="592.5" y2="221.4" stroke="#222"/>
+<line x1="582.5" y1="222.0" x2="592.5" y2="222.0" stroke="#222"/>
+<rect x="615.3" y="243.4" width="48.0" height="221.6" fill="#E66A00"/>
+<line x1="639.3" y1="243.0" x2="639.3" y2="243.9" stroke="#222" stroke-width="1.2"/>
+<line x1="634.3" y1="243.0" x2="644.3" y2="243.0" stroke="#222"/>
+<line x1="634.3" y1="243.9" x2="644.3" y2="243.9" stroke="#222"/>
+<rect x="667.2" y="217.2" width="48.0" height="247.8" fill="#009F78"/>
+<line x1="691.2" y1="216.7" x2="691.2" y2="217.8" stroke="#222" stroke-width="1.2"/>
+<line x1="686.2" y1="216.7" x2="696.2" y2="216.7" stroke="#222"/>
+<line x1="686.2" y1="217.8" x2="696.2" y2="217.8" stroke="#222"/>
 <text x="587.5" y="485" class="axis" text-anchor="middle">S2 (114 kelas)</text>
 <rect x="794.8" y="75.0" width="48.0" height="390.0" fill="#999999"/>
 <text x="818.8" y="68.0" class="small" text-anchor="middle" transform="rotate(-90 818.8 68.0)">5/5 timeout</text>

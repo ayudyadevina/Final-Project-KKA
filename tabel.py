@@ -28,7 +28,7 @@ LABEL_VARIAN = {
 
 # Warna dibuat menyerupai referensi grafik.
 WARNA_VARIAN = ["#999999", "#0877B9", "#55B3E6", "#E66A00", "#009F78"]
-BATAS_TIMEOUT_DEFAULT = 20.0
+BATAS_TIMEOUT_DEFAULT = 60.0
 
 
 def angka(nilai):
