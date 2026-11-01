@@ -16,10 +16,7 @@ def jalankan(nama_data, kode_algo, batas_waktu, seed):
     folder = FOLDER_DATA / nama_data
     csp = muat_csp(folder)
     konfig = replace(VARIAN[PILIHAN_ALGO[kode_algo]], timeout=batas_waktu, seed=seed)
-    try:
-        jadwal, stat = solve(csp, konfig)
-    except NotImplementedError as err:
-        return {"error": str(err)}
+    jadwal, stat = solve(csp, konfig)
     daftar_slot = pd.read_csv(folder / "slot.csv")
     n_ruang = len(pd.read_csv(folder / "ruang.csv"))
     pelanggaran = None
