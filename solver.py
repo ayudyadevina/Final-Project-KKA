@@ -1,14 +1,3 @@
-"""
-solver.py - Backtracking search untuk CSP penjadwalan.
-
-Antarmuka: assignment, stats = solve(csp, Config(...))
-
-assignment : {Kelas: (Slot, Ruang)} bila solved, None bila failure/timeout
-stats      : nodes, backtracks, checks, time, status ("solved"/"failure"/"timeout")
-
-Flag: mrv, degree (pemecah seri MRV), lcv, fc. ac3 belum ada (task 14, PIC A).
-"""
-
 import argparse
 import csv
 import random
@@ -16,22 +5,19 @@ import time
 from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Optional
-
 from csp import CSP, load_data
 from heuristics import build_ikatan, select_var, order_values
-from propagation import forward_check, restore
-
+from propagation import forward_check, restore, mac, ac3_awal
 BASE = Path(__file__).parent
-
 
 @dataclass
 class Config:
     mrv: bool = False
-    degree: bool = False        # pemecah seri MRV
+    degree: bool = False        
     lcv: bool = False
     fc: bool = False
-    ac3: bool = False           # MAC
-    timeout: float = 60.0       # detik
+    ac3: bool = False          
+    timeout: float = 60.0       
     seed: Optional[int] = None  
 
 VARIAN = {
@@ -42,20 +28,11 @@ VARIAN = {
     "BT + MAC (AC-3)": Config(ac3=True),
 }
 
-
 class _Timeout(Exception):
     pass
 
-
-def _cek_didukung(config):
-    if config.ac3:
-        raise NotImplementedError("ac3/MAC belum diimplementasikan (task 14, PIC A).")
-
-
 def solve(csp, config=None):
     config = config or Config()
-    _cek_didukung(config)
-
     order = list(csp.variables)
     domains = {k: list(csp.domains[k]) for k in order}
     if config.seed is not None:
@@ -64,12 +41,14 @@ def solve(csp, config=None):
         for d in domains.values():
             rng.shuffle(d)
     ikatan = build_ikatan(order)
-
     csp.constraint_checks = 0
     stats = {"nodes": 0, "backtracks": 0}
     assignment = {}
     t0 = time.perf_counter()
     deadline = t0 + config.timeout
+    if config.ac3 and ac3_awal(csp, domains, ikatan) is None:
+        stats.update(time=time.perf_counter() - t0, checks=csp.constraint_checks, status="failure")
+        return None, stats
 
     def consistent(var, val):
         return not any(csp.conflict(var, val, o, v) for o, v in assignment.items())
@@ -82,7 +61,11 @@ def solve(csp, config=None):
             if time.perf_counter() >= deadline:
                 raise _Timeout
             removed = None
-            if config.fc:
+            if config.ac3:
+                removed = mac(csp, var, val, assignment, domains, ikatan)
+                if removed is None:
+                    continue
+            elif config.fc:
                 removed = forward_check(csp, var, val, assignment, domains)
                 if removed is None:
                     continue
@@ -109,7 +92,6 @@ def solve(csp, config=None):
     stats["status"] = status
     return (dict(assignment) if ok else None), stats
 
-
 def simpan_jadwal(assignment, path):
     """Tulis jadwal ke CSV format verify.py: id_kelas,id_slot,id_ruang."""
     path = Path(path)
@@ -120,12 +102,10 @@ def simpan_jadwal(assignment, path):
         for k, (s, r) in assignment.items():
             w.writerow([k.id, s.id, r.id])
 
-
 def muat_csp(data_dir):
     data_dir = Path(data_dir)
     kelas, ruang, slot = load_data(data_dir / "kelas.csv", data_dir / "ruang.csv", data_dir / "slot.csv")
     return CSP(kelas, ruang, slot)
-
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
@@ -135,7 +115,6 @@ if __name__ == "__main__":
     p.add_argument("--seed", type=int, default=None)
     p.add_argument("--out", default=str(BASE / "hasil" / "jadwal.csv"))
     a = p.parse_args()
-
     csp = muat_csp(a.data)
     cfg = replace(VARIAN[a.algo], timeout=a.timeout, seed=a.seed)
     asg, st = solve(csp, cfg)
