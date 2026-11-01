@@ -34,11 +34,7 @@ def main():
     args = parser.parse_args()
     csp = muat_csp(args.data)
     konfig = replace(VARIAN[PILIHAN_ALGO[args.algo]], timeout=args.timeout, seed=args.seed)
-    try:
-        jadwal, stat = solve(csp, konfig)
-    except NotImplementedError as err:
-        print(err)
-        return
+    jadwal, stat = solve(csp, konfig)
     if jadwal is None:
         print(f"Tidak ada jadwal ({stat['status']})")
     else:
