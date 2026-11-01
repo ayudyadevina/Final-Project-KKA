@@ -1,24 +1,10 @@
-"""
-make_datasets.py - Generator 3 dataset skenario dari data/ utama (task 12).
-
-Jalankan dari folder utama repo:  python3 make_datasets.py
-Hasil: data/S1, data/S2, data/S3, masing-masing berisi kelas.csv, ruang.csv, slot.csv
-
-  S1  sedang   : semester 3 saja (70 kelas), semua ruang
-  S2  ketat    : semua kelas (114), hanya 5 ruang teori + 1 lab
-                 (5 x 20 = 100 tempat untuk 96 kelas teori; masih ada solusi)
-  S3  mustahil : semua kelas (114), 4 ruang teori + 1 lab
-                 (4 x 20 = 80 tempat < 96 kelas teori; tidak mungkin ada solusi)
-
-Semester di data asli: 3, 5, 7.
-"""
 import csv
 from pathlib import Path
 
 BASE = Path(__file__).parent
 SRC = BASE / "data"
-N_TEORI_S2, N_LAB_S2 = 5, 1      # S2: 5 ruang teori (100 tempat utk 96 kelas) + 1 lab
-N_TEORI_S3, N_LAB_S3 = 4, 1      # S3: 4 x 20 = 80 < 96 kelas teori -> mustahil
+N_TEORI_S2, N_LAB_S2 = 5, 1      
+N_TEORI_S3, N_LAB_S3 = 4, 1      
 
 
 def baca(nama):
@@ -38,7 +24,7 @@ def tulis(folder, nama, fields, rows):
 def kurangi_ruang(ruang, n_teori, n_lab):
     out, cnt = [], {"teori": 0, "lab": 0}
     kuota = {"teori": n_teori, "lab": n_lab}
-    for r in ruang:                      # ambil dari urutan di CSV (deterministik)
+    for r in ruang:                      
         if cnt[r["tipe"]] < kuota[r["tipe"]]:
             cnt[r["tipe"]] += 1
             out.append(r)

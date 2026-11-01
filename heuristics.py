@@ -1,6 +1,3 @@
-"""
-heuristics.py - Pemilihan variabel (MRV + degree) dan urutan nilai (LCV)
-"""
 from collections import Counter
 
 
@@ -17,9 +14,8 @@ def build_ikatan(variables):
 def select_var(order, assignment, domains, ikatan, config):
     belum = [v for v in order if v not in assignment]
     if not config.mrv:
-        return belum[0]                          # baseline: urutan tetap
+        return belum[0]                          
     if config.degree:
-        # MRV; seri dipecah: yang punya lebih banyak tetangga terikat belum terisi didahulukan
         return min(belum, key=lambda v: (
             len(domains[v]),
             -sum(1 for n in ikatan[v] if n not in assignment)))
@@ -38,15 +34,14 @@ def order_values(var, order, assignment, domains, ikatan, config):
         info.append((nb in ikatan[var], set(dom), Counter(s for s, _ in dom)))
 
     def cost(val):
-        # jumlah nilai tetangga yang tertutup bila var = val
         s, _ = val
         c = 0
         for terikat, dset, cnt in info:
-            ada = val in dset                    # C1: (slot, ruang) persis sama
+            ada = val in dset                    
             if ada:
                 c += 1
-            if terikat:                          # C2/C3: seluruh slot s tertutup
+            if terikat:                          
                 c += cnt[s] - (1 if ada else 0)
         return c
 
-    return sorted(vals, key=cost)                # seri tetap urutan awal
+    return sorted(vals, key=cost)               

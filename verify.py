@@ -1,17 +1,3 @@
-"""
-verify.py - Pengecek jadwal INDEPENDEN (task 11).
-
-Sengaja TIDAK mengimpor csp.py / solver.py. Semua aturan ditulis ulang
-dari nol dan data dibaca sendiri dari CSV, supaya bug di csp.py atau
-solver tetap tertangkap di sini.
-
-Format jadwal (CSV): id_kelas,id_slot,id_ruang
-  atau dict Python: {"TG-B": ("Sen-1", "IF-101"), ...}
-
-Pemakaian:
-  python verify.py hasil/jadwal.csv
-  python verify.py hasil/jadwal.csv --data data/S2
-"""
 import argparse
 import csv
 import sys
@@ -38,7 +24,6 @@ def verifikasi(jadwal, data_dir=BASE / "data" / "S1"):
     slot = {r["id_slot"] for r in _read(data_dir / "slot.csv")}
     v = []
 
-    # 0. kelengkapan: tiap kelas terjadwal tepat sekali, tidak ada kelas asing
     for kid in kelas:
         if kid not in jadwal:
             v.append(f"[LENGKAP] {kid} belum dijadwalkan")
@@ -46,7 +31,6 @@ def verifikasi(jadwal, data_dir=BASE / "data" / "S1"):
         if kid not in kelas:
             v.append(f"[LENGKAP] {kid} tidak ada di kelas.csv")
 
-    # 1. nilai valid + U1 (tipe ruang cocok)
     for kid, (s, r) in jadwal.items():
         if kid not in kelas:
             continue
@@ -57,7 +41,6 @@ def verifikasi(jadwal, data_dir=BASE / "data" / "S1"):
         elif ruang[r]["tipe"] != kelas[kid]["tipe"]:
             v.append(f"[U1] {kid} ({kelas[kid]['tipe']}) di ruang {r} ({ruang[r]['tipe']})")
 
-    # kelompokkan kelas per slot, lalu cek antar pasangan di slot yang sama
     per_slot = defaultdict(list)
     for kid, (s, r) in jadwal.items():
         if kid in kelas:
