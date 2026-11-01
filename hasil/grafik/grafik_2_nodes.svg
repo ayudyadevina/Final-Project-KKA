@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="600" viewBox="0 0 1120 600">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.title{font-size:21px;font-weight:600}.sub{font-size:12px;fill:#555}.axis{font-size:12px}.legend{font-size:13px}.small{font-size:10px}</style>
+<text x="560.0" y="30" text-anchor="middle" class="title">Jumlah nodes expanded per skenario dan varian</text>
+<text x="560.0" y="51" text-anchor="middle" class="sub">Rata-rata dari run berstatus solved</text>
+<line x1="85" y1="475.0" x2="1085" y2="475.0" stroke="#ddd"/>
+<text x="75" y="479.0" class="axis" text-anchor="end">0</text>
+<line x1="85" y1="395.0" x2="1085" y2="395.0" stroke="#ddd"/>
+<text x="75" y="399.0" class="axis" text-anchor="end">26</text>
+<line x1="85" y1="315.0" x2="1085" y2="315.0" stroke="#ddd"/>
+<text x="75" y="319.0" class="axis" text-anchor="end">52</text>
+<line x1="85" y1="235.0" x2="1085" y2="235.0" stroke="#ddd"/>
+<text x="75" y="239.0" class="axis" text-anchor="end">79</text>
+<line x1="85" y1="155.0" x2="1085" y2="155.0" stroke="#ddd"/>
+<text x="75" y="159.0" class="axis" text-anchor="end">105</text>
+<line x1="85" y1="75.0" x2="1085" y2="75.0" stroke="#ddd"/>
+<text x="75" y="79.0" class="axis" text-anchor="end">131</text>
+<rect x="132.0" y="261.4" width="45.0" height="213.6" fill="#999999"/>
+<rect x="180.6" y="261.4" width="45.0" height="213.6" fill="#0877B9"/>
+<rect x="229.2" y="261.4" width="45.0" height="213.6" fill="#55B3E6"/>
+<rect x="277.8" y="261.4" width="45.0" height="213.6" fill="#E66A00"/>
+<rect x="326.4" y="261.4" width="45.0" height="213.6" fill="#009F78"/>
+<text x="251.7" y="497" class="axis" text-anchor="middle">S1 (70 kelas)</text>
+<rect x="465.3" y="127.2" width="45.0" height="347.8" fill="#999999"/>
+<rect x="513.9" y="127.2" width="45.0" height="347.8" fill="#0877B9"/>
+<rect x="562.5" y="127.2" width="45.0" height="347.8" fill="#55B3E6"/>
+<rect x="611.1" y="127.2" width="45.0" height="347.8" fill="#E66A00"/>
+<rect x="659.7" y="127.2" width="45.0" height="347.8" fill="#009F78"/>
+<text x="585.0" y="497" class="axis" text-anchor="middle">S2 (114 kelas)</text>
+<text x="918.3" y="497" class="axis" text-anchor="middle">S3 (114 kelas)</text>
+<rect x="185.0" y="553" width="20" height="11" fill="#999999"/>
+<text x="211.0" y="563" class="legend">BT</text>
+<rect x="335.0" y="553" width="20" height="11" fill="#0877B9"/>
+<text x="361.0" y="563" class="legend">MRV</text>
+<rect x="485.0" y="553" width="20" height="11" fill="#55B3E6"/>
+<text x="511.0" y="563" class="legend">MRV+LCV</text>
+<rect x="635.0" y="553" width="20" height="11" fill="#E66A00"/>
+<text x="661.0" y="563" class="legend">MRV+FC</text>
+<rect x="785.0" y="553" width="20" height="11" fill="#009F78"/>
+<text x="811.0" y="563" class="legend">MAC</text>
+<text x="23" y="275.0" class="axis" text-anchor="middle" transform="rotate(-90 23 275.0)">Nodes expanded</text>
+</svg>

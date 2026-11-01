@@ -1,0 +1,4 @@
+﻿skenario,total_run,solved,failure,timeout,jadwal_valid
+S1,25,25,0,0,25
+S2,25,25,0,0,25
+S3,25,0,0,25,0

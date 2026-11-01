@@ -1,0 +1,16 @@
+﻿skenario,varian,solved,rata_rata_waktu_solved_s,rata_rata_nodes_solved,rata_rata_backtracks_solved,rata_rata_checks_solved
+S1,BT,5,0.00564,70.0,0.0,3353.2
+S1,BT + MRV (+degree),5,0.0208,70.0,0.0,3376.2
+S1,BT + MRV + LCV,5,0.79682,70.0,0.0,3376.2
+S1,BT + MRV + FC,5,0.54954,70.0,0.0,491694.8
+S1,BT + MAC (AC-3),5,0.65338,70.0,0.0,405943.6
+S2,BT,5,0.0224,114.0,0.0,20739.2
+S2,BT + MRV (+degree),5,0.05986,114.0,0.0,20220.4
+S2,BT + MRV + LCV,5,0.95612,114.0,0.0,20220.4
+S2,BT + MRV + FC,5,0.51842,114.0,0.0,458835.4
+S2,BT + MAC (AC-3),5,1.0851,114.0,0.0,356432.2
+S3,BT,0,,,,
+S3,BT + MRV (+degree),0,,,,
+S3,BT + MRV + LCV,0,,,,
+S3,BT + MRV + FC,0,,,,
+S3,BT + MAC (AC-3),0,,,,

@@ -1,0 +1,76 @@
+skenario,varian,run,status,waktu,nodes,backtracks,checks,memori_kb,valid
+S1,BT,1,solved,0.0059,70,0,3557,305.1,True
+S1,BT,2,solved,0.0055,70,0,3371,,True
+S1,BT,3,solved,0.0051,70,0,3324,,True
+S1,BT,4,solved,0.0052,70,0,2984,,True
+S1,BT,5,solved,0.0065,70,0,3530,,True
+S1,BT + MRV (+degree),1,solved,0.0221,70,0,3324,304.7,True
+S1,BT + MRV (+degree),2,solved,0.0188,70,0,3401,,True
+S1,BT + MRV (+degree),3,solved,0.0192,70,0,3253,,True
+S1,BT + MRV (+degree),4,solved,0.0192,70,0,3271,,True
+S1,BT + MRV (+degree),5,solved,0.0247,70,0,3632,,True
+S1,BT + MRV + LCV,1,solved,0.8286,70,0,3324,731.6,True
+S1,BT + MRV + LCV,2,solved,0.7904,70,0,3401,,True
+S1,BT + MRV + LCV,3,solved,0.8014,70,0,3253,,True
+S1,BT + MRV + LCV,4,solved,0.7779,70,0,3271,,True
+S1,BT + MRV + LCV,5,solved,0.7858,70,0,3632,,True
+S1,BT + MRV + FC,1,solved,0.5273,70,0,490424,426.2,True
+S1,BT + MRV + FC,2,solved,0.5816,70,0,492896,,True
+S1,BT + MRV + FC,3,solved,0.6048,70,0,491616,,True
+S1,BT + MRV + FC,4,solved,0.5174,70,0,492318,,True
+S1,BT + MRV + FC,5,solved,0.5166,70,0,491220,,True
+S1,BT + MAC (AC-3),1,solved,0.6598,70,0,407891,422.5,True
+S1,BT + MAC (AC-3),2,solved,0.6683,70,0,407923,,True
+S1,BT + MAC (AC-3),3,solved,0.6577,70,0,409334,,True
+S1,BT + MAC (AC-3),4,solved,0.6382,70,0,405050,,True
+S1,BT + MAC (AC-3),5,solved,0.6429,70,0,399520,,True
+S2,BT,1,solved,0.0206,114,0,20567,271.1,True
+S2,BT,2,solved,0.0194,114,0,18269,,True
+S2,BT,3,solved,0.0229,114,0,21336,,True
+S2,BT,4,solved,0.0244,114,0,22620,,True
+S2,BT,5,solved,0.0247,114,0,20904,,True
+S2,BT + MRV (+degree),1,solved,0.0565,114,0,19422,271.1,True
+S2,BT + MRV (+degree),2,solved,0.0577,114,0,20122,,True
+S2,BT + MRV (+degree),3,solved,0.064,114,0,20523,,True
+S2,BT + MRV (+degree),4,solved,0.0583,114,0,18524,,True
+S2,BT + MRV (+degree),5,solved,0.0628,114,0,22511,,True
+S2,BT + MRV + LCV,1,solved,0.9549,114,0,19422,1076.1,True
+S2,BT + MRV + LCV,2,solved,0.9486,114,0,20122,,True
+S2,BT + MRV + LCV,3,solved,0.9593,114,0,20523,,True
+S2,BT + MRV + LCV,4,solved,0.9493,114,0,18524,,True
+S2,BT + MRV + LCV,5,solved,0.9685,114,0,22511,,True
+S2,BT + MRV + FC,1,solved,0.5228,114,0,458977,760.5,True
+S2,BT + MRV + FC,2,solved,0.5249,114,0,459113,,True
+S2,BT + MRV + FC,3,solved,0.5098,114,0,458063,,True
+S2,BT + MRV + FC,4,solved,0.5226,114,0,458677,,True
+S2,BT + MRV + FC,5,solved,0.512,114,0,459347,,True
+S2,BT + MAC (AC-3),1,solved,1.1109,114,0,370773,728.6,True
+S2,BT + MAC (AC-3),2,solved,1.0899,114,0,360310,,True
+S2,BT + MAC (AC-3),3,solved,1.0651,114,0,342054,,True
+S2,BT + MAC (AC-3),4,solved,1.0773,114,0,360422,,True
+S2,BT + MAC (AC-3),5,solved,1.0823,114,0,348602,,True
+S3,BT,1,timeout,60.0002,12124,12029,43959254,241.2,
+S3,BT,2,timeout,60.0003,12478,12385,38227838,,
+S3,BT,3,timeout,60.0003,12894,12806,38970228,,
+S3,BT,4,timeout,60.0002,12226,12129,40447381,,
+S3,BT,5,timeout,60.0008,13022,12928,41005805,,
+S3,BT + MRV (+degree),1,timeout,60.0002,8849,8752,39250362,241.9,
+S3,BT + MRV (+degree),2,timeout,60.0004,9482,9386,41560686,,
+S3,BT + MRV (+degree),3,timeout,60.0002,8322,8226,35886486,,
+S3,BT + MRV (+degree),4,timeout,60.0008,9588,9490,36083865,,
+S3,BT + MRV (+degree),5,timeout,60.0004,7687,7592,33885617,,
+S3,BT + MRV + LCV,1,timeout,60.0019,5840,5744,25770574,1061.2,
+S3,BT + MRV + LCV,2,timeout,60.0004,5917,5820,25779850,,
+S3,BT + MRV + LCV,3,timeout,60.0003,5640,5545,24226953,,
+S3,BT + MRV + LCV,4,timeout,60.0041,5929,5832,22171527,,
+S3,BT + MRV + LCV,5,timeout,60.0007,4653,4556,20363619,,
+S3,BT + MRV + FC,1,timeout,60.0321,103421,103324,5932163,723.8,
+S3,BT + MRV + FC,2,timeout,60.0022,107269,107175,6047950,,
+S3,BT + MRV + FC,3,timeout,60.0027,103271,103174,5721895,,
+S3,BT + MRV + FC,4,timeout,60.0022,91715,91619,6332237,,
+S3,BT + MRV + FC,5,timeout,60.0022,110865,110769,5931297,,
+S3,BT + MAC (AC-3),1,timeout,60.0121,4354,4266,1882882,760.1,
+S3,BT + MAC (AC-3),2,timeout,60.0066,5204,5117,2205048,,
+S3,BT + MAC (AC-3),3,timeout,60.0038,3711,3625,2724389,,
+S3,BT + MAC (AC-3),4,timeout,60.005,5095,5002,1882392,,
+S3,BT + MAC (AC-3),5,timeout,60.0034,4171,4086,2255664,,

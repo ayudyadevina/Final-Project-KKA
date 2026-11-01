@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="600" viewBox="0 0 1120 600">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.title{font-size:21px;font-weight:600}.sub{font-size:12px;fill:#555}.axis{font-size:12px}.legend{font-size:13px}.small{font-size:10px}</style>
+<text x="560.0" y="30" text-anchor="middle" class="title">Jumlah kelas vs waktu penyelesaian</text>
+<text x="560.0" y="51" text-anchor="middle" class="sub">Rata-rata waktu run solved; skenario tanpa solusi tidak ditampilkan</text>
+<line x1="90" y1="485.0" x2="1075" y2="485.0" stroke="#ddd"/>
+<text x="80" y="489.0" class="axis" text-anchor="end">0</text>
+<line x1="90.0" y1="75" x2="90.0" y2="485" stroke="#eee"/>
+<text x="90.0" y="507" class="axis" text-anchor="middle">70</text>
+<line x1="90" y1="403.0" x2="1075" y2="403.0" stroke="#ddd"/>
+<text x="80" y="407.0" class="axis" text-anchor="end">0.25</text>
+<line x1="287.0" y1="75" x2="287.0" y2="485" stroke="#eee"/>
+<text x="287.0" y="507" class="axis" text-anchor="middle">79</text>
+<line x1="90" y1="321.0" x2="1075" y2="321.0" stroke="#ddd"/>
+<text x="80" y="325.0" class="axis" text-anchor="end">0.499</text>
+<line x1="484.0" y1="75" x2="484.0" y2="485" stroke="#eee"/>
+<text x="484.0" y="507" class="axis" text-anchor="middle">88</text>
+<line x1="90" y1="239.0" x2="1075" y2="239.0" stroke="#ddd"/>
+<text x="80" y="243.0" class="axis" text-anchor="end">0.749</text>
+<line x1="681.0" y1="75" x2="681.0" y2="485" stroke="#eee"/>
+<text x="681.0" y="507" class="axis" text-anchor="middle">96</text>
+<line x1="90" y1="157.0" x2="1075" y2="157.0" stroke="#ddd"/>
+<text x="80" y="161.0" class="axis" text-anchor="end">0.998</text>
+<line x1="878.0" y1="75" x2="878.0" y2="485" stroke="#eee"/>
+<text x="878.0" y="507" class="axis" text-anchor="middle">105</text>
+<line x1="90" y1="75.0" x2="1075" y2="75.0" stroke="#ddd"/>
+<text x="80" y="79.0" class="axis" text-anchor="end">1.25</text>
+<line x1="1075.0" y1="75" x2="1075.0" y2="485" stroke="#eee"/>
+<text x="1075.0" y="507" class="axis" text-anchor="middle">114</text>
+<polyline points="90.0,483.1 1075.0,477.6" fill="none" stroke="#999999" stroke-width="2"/>
+<circle cx="90.0" cy="483.1" r="5" fill="#999999"/>
+<text x="97.0" y="475.1" class="small">S1</text>
+<circle cx="1075.0" cy="477.6" r="5" fill="#999999"/>
+<text x="1082.0" y="469.6" class="small">S2</text>
+<polyline points="90.0,478.2 1075.0,465.3" fill="none" stroke="#0877B9" stroke-width="2"/>
+<circle cx="90.0" cy="478.2" r="5" fill="#0877B9"/>
+<text x="97.0" y="470.2" class="small">S1</text>
+<circle cx="1075.0" cy="465.3" r="5" fill="#0877B9"/>
+<text x="1082.0" y="457.3" class="small">S2</text>
+<polyline points="90.0,223.2 1075.0,170.9" fill="none" stroke="#55B3E6" stroke-width="2"/>
+<circle cx="90.0" cy="223.2" r="5" fill="#55B3E6"/>
+<text x="97.0" y="215.2" class="small">S1</text>
+<circle cx="1075.0" cy="170.9" r="5" fill="#55B3E6"/>
+<text x="1082.0" y="162.9" class="small">S2</text>
+<polyline points="90.0,304.4 1075.0,314.7" fill="none" stroke="#E66A00" stroke-width="2"/>
+<circle cx="90.0" cy="304.4" r="5" fill="#E66A00"/>
+<text x="97.0" y="296.4" class="small">S1</text>
+<circle cx="1075.0" cy="314.7" r="5" fill="#E66A00"/>
+<text x="1082.0" y="306.7" class="small">S2</text>
+<polyline points="90.0,270.3 1075.0,128.5" fill="none" stroke="#009F78" stroke-width="2"/>
+<circle cx="90.0" cy="270.3" r="5" fill="#009F78"/>
+<text x="97.0" y="262.3" class="small">S1</text>
+<circle cx="1075.0" cy="128.5" r="5" fill="#009F78"/>
+<text x="1082.0" y="120.5" class="small">S2</text>
+<line x1="90" y1="561" x2="115" y2="561" stroke="#999999" stroke-width="3"/>
+<text x="122" y="565" class="legend">BT</text>
+<line x1="390" y1="561" x2="415" y2="561" stroke="#0877B9" stroke-width="3"/>
+<text x="422" y="565" class="legend">MRV</text>
+<line x1="690" y1="561" x2="715" y2="561" stroke="#55B3E6" stroke-width="3"/>
+<text x="722" y="565" class="legend">MRV+LCV</text>
+<line x1="90" y1="579" x2="115" y2="579" stroke="#E66A00" stroke-width="3"/>
+<text x="122" y="583" class="legend">MRV+FC</text>
+<line x1="390" y1="579" x2="415" y2="579" stroke="#009F78" stroke-width="3"/>
+<text x="422" y="583" class="legend">MAC</text>
+<text x="560.0" y="595" class="axis" text-anchor="middle">Jumlah kelas</text>
+<text x="23" y="280.0" class="axis" text-anchor="middle" transform="rotate(-90 23 280.0)">Waktu rata-rata (detik)</text>
+</svg>
