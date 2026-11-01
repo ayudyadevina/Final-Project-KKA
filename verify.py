@@ -10,7 +10,7 @@ Format jadwal (CSV): id_kelas,id_slot,id_ruang
 
 Pemakaian:
   python verify.py hasil/jadwal.csv
-  python verify.py hasil/jadwal.csv --data data
+  python verify.py hasil/jadwal.csv --data data/S2
 """
 import argparse
 import csv
@@ -30,7 +30,7 @@ def load_jadwal_csv(path):
     return {r["id_kelas"]: (r["id_slot"], r["id_ruang"]) for r in _read(path)}
 
 
-def verifikasi(jadwal, data_dir=BASE / "data"):
+def verifikasi(jadwal, data_dir=BASE / "data" / "S1"):
     """Kembalikan list string pelanggaran. List kosong = jadwal valid."""
     data_dir = Path(data_dir)
     kelas = {r["id_kelas"]: r for r in _read(data_dir / "kelas.csv")}
@@ -82,13 +82,13 @@ def verifikasi(jadwal, data_dir=BASE / "data"):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("jadwal", nargs="?", default=str(BASE / "hasil" / "jadwal.csv"),
-                   help="file CSV: id_kelas,id_slot,id_ruang (default: hasil/jadwal.csv)")
-    p.add_argument("--data", default=str(BASE / "data"))
+                help="file CSV: id_kelas,id_slot,id_ruang (default: hasil/jadwal.csv)")
+    p.add_argument("--data", default=str(BASE / "data" / "S1"))
     args = p.parse_args()
     if not Path(args.jadwal).exists():
         print(f"File jadwal tidak ditemukan: {args.jadwal}")
         print("verify.py butuh file jadwal hasil solver (kolom: id_kelas,id_slot,id_ruang).")
-        print("Belum ada solver? Pakai contoh: python3 verify.py hasil/tes_valid.csv")
+        print("Buat dulu jadwalnya dengan: python solver.py  (atau python main.py)")
         sys.exit(2)
     hasil = verifikasi(load_jadwal_csv(args.jadwal), args.data)
     if hasil:
