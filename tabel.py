@@ -26,10 +26,8 @@ LABEL_VARIAN = {
     "BT + MAC (AC-3)": "MAC",
 }
 
-# Warna dibuat menyerupai referensi grafik.
 WARNA_VARIAN = ["#999999", "#0877B9", "#55B3E6", "#E66A00", "#009F78"]
 BATAS_TIMEOUT_DEFAULT = 60.0
-
 
 def angka(nilai):
     try:
@@ -39,7 +37,6 @@ def angka(nilai):
     except (TypeError, ValueError):
         return None
 
-
 def tulis_csv(nama_file, kolom, data):
     path = FOLDER_OUTPUT / nama_file
     with open(path, "w", newline="", encoding="utf-8-sig") as f:
@@ -48,18 +45,15 @@ def tulis_csv(nama_file, kolom, data):
         writer.writerows(data)
     print("Dibuat:", path)
 
-
 def rata_rata(data, kolom):
     nilai = [angka(row.get(kolom)) for row in data]
     nilai = [x for x in nilai if x is not None]
     return statistics.mean(nilai) if nilai else None
 
-
 def simpangan_baku(data, kolom):
     nilai = [angka(row.get(kolom)) for row in data]
     nilai = [x for x in nilai if x is not None]
     return statistics.stdev(nilai) if len(nilai) >= 2 else 0.0
-
 
 def hitung_jumlah_kelas(skenario):
     file_kelas = BASE / "data" / skenario / "kelas.csv"
@@ -68,18 +62,14 @@ def hitung_jumlah_kelas(skenario):
     with open(file_kelas, newline="", encoding="utf-8-sig") as f:
         return sum(1 for _ in csv.DictReader(f))
 
-
 def ambil_batas_timeout(hasil):
-    # Ambil timeout dari baris eksperimen jika ada; jika tidak, gunakan 20 detik.
     for row in hasil:
         for kolom in ("timeout_limit", "batas_timeout", "timeout"):
             nilai = angka(row.get(kolom))
             if nilai is not None and nilai > 0:
-                # Kolom timeout pada sebagian CSV berisi status, bukan batas.
                 if kolom != "timeout":
                     return nilai
     return BATAS_TIMEOUT_DEFAULT
-
 
 def svg_header(judul, subjudul, width=1120, height=650):
     return [
@@ -93,7 +83,6 @@ def svg_header(judul, subjudul, width=1120, height=650):
         f'<text x="{width/2}" y="51" text-anchor="middle" class="sub">{escape(subjudul)}</text>',
     ]
 
-
 def simpan_svg(nama, bagian):
     FOLDER_GRAFIK.mkdir(parents=True, exist_ok=True)
     path = FOLDER_GRAFIK / nama
@@ -103,12 +92,9 @@ def simpan_svg(nama, bagian):
 
 
 def grafik_waktu_referensi(hasil, skenario_list, varian_list, batas_timeout):
-    """Grouped bar chart: skenario di sumbu X, warna untuk tiap varian."""
     W, H = 1120, 610
     left, right, top, bottom = 85, 30, 75, 145
     pw, ph = W-left-right, H-top-bottom
-
-    # Log scale: grafik menampilkan rentang 0.001 hingga batas timeout.
     y_min = 0.001
     y_max = max(batas_timeout, 1.0)
     log_min, log_max = math.log10(y_min), math.log10(y_max)
@@ -118,8 +104,6 @@ def grafik_waktu_referensi(hasil, skenario_list, varian_list, batas_timeout):
         f"Batas timeout ({batas_timeout:g} s); error bar menunjukkan simpangan baku run solved",
         W, H
     )
-
-    # Grid logaritmik.
     ticks = []
     p = math.floor(log_min)
     while 10 ** p <= y_max:
@@ -138,7 +122,7 @@ def grafik_waktu_referensi(hasil, skenario_list, varian_list, batas_timeout):
         label = f"{tick:g}" if tick >= 1 else f"{tick:.3g}"
         svg.append(f'<text x="{left-10}" y="{yy+4:.1f}" class="axis" text-anchor="end">{label}</text>')
 
-    # Garis batas timeout.
+
     y_timeout = y_pos(batas_timeout)
     svg.append(f'<line x1="{left}" y1="{y_timeout:.1f}" x2="{W-right}" y2="{y_timeout:.1f}" stroke="red" stroke-width="1.2" stroke-dasharray="5 3"/>')
     svg.append(f'<text x="{left+20}" y="{y_timeout-5:.1f}" class="small" fill="red">batas timeout ({batas_timeout:g} s)</text>')
@@ -169,8 +153,7 @@ def grafik_waktu_referensi(hasil, skenario_list, varian_list, batas_timeout):
             avg = rata_rata(solved, "waktu")
             sd = simpangan_baku(solved, "waktu")
 
-            # Jika seluruh run timeout, bar ditaruh pada batas timeout.
-            # Jika sebagian solved, bar menunjukkan rata-rata run solved dan timeout diberi anotasi.
+
             if avg is None and timeout_count:
                 plot_value = batas_timeout
                 bar_color = WARNA_VARIAN[vi % len(WARNA_VARIAN)]
@@ -189,7 +172,7 @@ def grafik_waktu_referensi(hasil, skenario_list, varian_list, batas_timeout):
                 color = WARNA_VARIAN[vi % len(WARNA_VARIAN)]
                 svg.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{height:.1f}" fill="{color}"/>')
 
-                # Error bar simpangan baku; dipotong di area grafik.
+
                 if sd > 0:
                     y1 = y_pos(min(avg+sd, batas_timeout))
                     y2 = y_pos(max(avg-sd, y_min))
@@ -207,7 +190,7 @@ def grafik_waktu_referensi(hasil, skenario_list, varian_list, batas_timeout):
 
         svg.append(f'<text x="{center:.1f}" y="{top+ph+20}" class="axis" text-anchor="middle">{escape(label_skenario)}</text>')
 
-    # Legend
+
     legend_y = H-35
     item_w = 150
     total_legend_w = len(varian_list)*item_w
