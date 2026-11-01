@@ -6,9 +6,10 @@ from main import PILIHAN_ALGO
 from solver import VARIAN, muat_csp, simpan_jadwal, solve
 from verify import verifikasi, load_jadwal_csv
 
-FOLDER_DATA = Path("data")
-FILE_JADWAL = "hasil/jadwal.csv"
-FILE_HASIL = Path("hasil/hasil.csv")
+BASE = Path(__file__).resolve().parent
+FOLDER_DATA = BASE / "data"
+FILE_JADWAL = BASE / "hasil" / "jadwal.csv"
+FILE_HASIL = BASE / "hasil" / "hasil.csv"
 WARNA_SEMESTER = {3: "blue", 5: "green", 7: "orange"}
 
 
@@ -22,6 +23,7 @@ def jalankan(nama_data, kode_algo, batas_waktu, seed):
     pelanggaran = None
     baris = []
     if jadwal:
+        FILE_JADWAL.parent.mkdir(parents=True, exist_ok=True)
         simpan_jadwal(jadwal, FILE_JADWAL)
         pelanggaran = verifikasi(load_jadwal_csv(FILE_JADWAL), folder)
         for kls, (slot, ruang) in jadwal.items():
@@ -75,23 +77,62 @@ def tampilkan_eksperimen():
         st.info("hasil/hasil.csv belum ada. Jalankan python experiments.py dulu.")
         return
     df = pd.read_csv(FILE_HASIL)
-    ringkas = df.groupby(["skenario", "varian"]).agg(
+    # Pastikan kolom numerik terbaca sebagai angka.
+    for kolom in ("waktu", "nodes", "backtracks", "checks"):
+        if kolom in df.columns:
+            df[kolom] = pd.to_numeric(df[kolom], errors="coerce")
+
+    semua = df.groupby(["skenario", "varian"]).agg(
         run=("run", "count"),
-        waktu_rata2=("waktu", "mean"),
-        nodes_rata2=("nodes", "mean"),
         solved=("status", lambda x: (x == "solved").sum()),
+        failure=("status", lambda x: (x == "failure").sum()),
         timeout=("status", lambda x: (x == "timeout").sum()),
     )
-    st.write("Ringkasan per skenario dan varian")
-    st.dataframe(ringkas)
+    solved_df = df[df["status"] == "solved"]
+    if not solved_df.empty:
+        metrik_solved = solved_df.groupby(["skenario", "varian"]).agg(
+            waktu_rata2=("waktu", "mean"),
+            nodes_rata2=("nodes", "mean"),
+            checks_rata2=("checks", "mean"),
+            backtracks_rata2=("backtracks", "mean"),
+        )
+        ringkas = semua.join(metrik_solved, how="left")
+    else:
+        ringkas = semua
+
+    st.subheader("Ringkasan per skenario dan varian")
+    st.caption("Rata-rata waktu, nodes, checks, dan backtracks dihitung hanya dari run solved.")
+    st.dataframe(ringkas, use_container_width=True)
+
+    if not solved_df.empty:
+        st.subheader("Perbandingan waktu eksekusi")
+        waktu = solved_df.pivot_table(
+            index="varian", columns="skenario", values="waktu", aggfunc="mean"
+        )
+        st.bar_chart(waktu)
+
+        st.subheader("Perbandingan nodes expanded")
+        nodes = solved_df.pivot_table(
+            index="varian", columns="skenario", values="nodes", aggfunc="mean"
+        )
+        st.bar_chart(nodes)
+
+    st.subheader("Status seluruh eksperimen")
+    status = df.groupby(["skenario", "status"]).size().unstack(fill_value=0)
+    st.bar_chart(status)
+
     with st.expander("Data mentah (satu baris per run)"):
-        st.dataframe(df)
+        st.dataframe(df, use_container_width=True)
 
 st.set_page_config(page_title="Penjadwalan Kuliah CSP", layout="wide")
 st.title("Penjadwalan Kuliah dengan CSP")
 
 st.sidebar.header("Pengaturan")
 daftar_data = sorted(p.parent.name for p in FOLDER_DATA.glob("S*/kelas.csv"))
+if not daftar_data:
+    st.error("Dataset S1–S3 belum tersedia. Letakkan kelas.csv, ruang.csv, dan slot.csv di folder data/, lalu jalankan: python make_datasets.py")
+    st.stop()
+
 nama_data = st.sidebar.selectbox("Dataset", daftar_data)
 kode_algo = st.sidebar.selectbox("Algoritma", list(PILIHAN_ALGO))
 batas_waktu = st.sidebar.number_input("Timeout (detik)", min_value=1, value=30)
