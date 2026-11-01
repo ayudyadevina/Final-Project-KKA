@@ -77,9 +77,22 @@ def buat_ringkasan(berkas_hasil, berkas_ringkasan, runs_diharapkan):
     for nama in VARIAN:
         if nama not in ada:
             masalah.append(f"varian '{nama}' belum ada di hasil")
-    print("\nCek:")
-    print("\n".join(f"  ! {m}" for m in masalah) if masalah else "Semua lolos")
-
+    print("\nCek konsistensi eksperimen:")
+    if masalah:
+        print("\n".join(f"  ! {m}" for m in masalah))
+    else:
+        print("Semua pengecekan konsistensi data lolos.")
+    print("\nCatatan timeout:")
+    ada_timeout = False
+    for r in ringkas:
+        if r["timeout"] > 0:
+            ada_timeout = True
+            print(
+                f"  ! {r['skenario']} {r['varian']}: "
+                f"{r['timeout']} dari {r['run']} run mengalami timeout."
+            )
+    if not ada_timeout:
+        print("Tidak ada timeout.")
 
 def main():
     parser = argparse.ArgumentParser()
